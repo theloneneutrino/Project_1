@@ -1,7 +1,9 @@
 % the 
+rad = 1:0.1:40;
+[cost, len] = cylCost(rad);
+[minCost, index] = min(cost);
+optRad = rad(index);
+optLen = len(index);
 
-optRad = fminbnd(@cylCost, 0, 50);
-[minCost, optLen] = cylCost(optRad);
-
-fprintf("The optimal radius of %fm and length %fm\n", optRad, optLen);
+fprintf("The optimal radius of %.3gm and length %.3gm\n", optRad, optLen);
 fprintf("Produces a cylinder with cost $%.2f.\n", minCost);
